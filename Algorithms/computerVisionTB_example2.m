@@ -24,7 +24,7 @@
 % is the number 3-D points in the captured lidar data, and the columns represent
 % _xyz_-coordinates associated with each captured point.
 
-pClouds = pc2cell(pcSet);
+pClouds = pc2cell(preprocessedpcSet);
 %% Parameters For Point Cloud Registration Algorithm
 % Specify the parameters for estimating the trajectory using the point cloud
 % registration algorithm. |maxLidarRange| specifies the maximum range of the 3-D

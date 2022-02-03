@@ -64,13 +64,14 @@ maxTolerableRMSE  = 3; % Maximum allowed RMSE for a loop closure candidate to be
 
 skipFrames  = 1;
 displayRate = 10;      % Update display every 100 frames
-numFrames   = size_of_psSet(pcSet);
+numFrames   = size_of_psSet(preprocessedpcSet);
 
 viewId = 1;
 for n = 1 : skipFrames : numFrames
+    n
 
     % Read point cloud
-    ptCloudOrig = pcSet{n};
+    ptCloudOrig = preprocessedpcSet{n};
 
     ptCloud = ptCloudOrig;
 
@@ -94,6 +95,7 @@ for n = 1 : skipFrames : numFrames
 
     % Compute rigid transformation that registers current point cloud with
     % previous point cloud
+    %relTform = pcregistericp(ptCloud, ptCloudPrev);
     relTform = pcregisterndt(ptCloud, ptCloudPrev, regGridSize);
 
     % Update absolute transformation to reference frame (first point cloud)
