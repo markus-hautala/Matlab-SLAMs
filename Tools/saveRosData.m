@@ -4,7 +4,7 @@ rosshutdown % Sammutetaan edellinen ROS palvelin
 rosinit(IP_address) % Alustetaan uusi ROS palvelin
 exampleHelperROSLoadMessages % Työkalu tietotyyppien käsittelemiseen
 
-lidarPlayer = lidarPlayer_func; % Esikatselunäkymä
+lidarPlayer = showPc('ros read'); % Esikatselunäkymä
 subscr = rossubscriber(topic); % Tilauskutsu ROSiin
 
 pcSet = {}; % Tallennetaan pistepilvien joukko
