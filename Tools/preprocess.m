@@ -10,6 +10,8 @@ for (n=1 : eachFrame : size_of_psSet(pcSet))
 
     pc = pcdownsample(pc, 'gridAverage', 0.100);
 
+    pc = pc_fov(pc, 30, 30);
+
     processed_pcSet{end+1} = pc;
 end
 

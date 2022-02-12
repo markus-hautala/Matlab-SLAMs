@@ -100,7 +100,7 @@ title(axMap,'Map of the Environment and Robot Trajectory')
 % though this increases computation time.
 
 loopClosureThreshold = 110;
-loopClosureSearchRadius = 2;
+loopClosureSearchRadius = 1;
 [loopClosureEdgeIds,loopClosurePoses] = helperDetectLoop(scans,pGraph, ...
     loopClosureSearchRadius,loopClosureThreshold);
 % Trajectory Optimization

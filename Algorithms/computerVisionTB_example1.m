@@ -68,14 +68,13 @@ numFrames   = size_of_psSet(preprocessedpcSet);
 
 viewId = 1;
 for n = 1 : skipFrames : numFrames
-    n
 
     % Read point cloud
     ptCloudOrig = preprocessedpcSet{n};
 
     ptCloud = ptCloudOrig;
 
-    regGridSize       = 3;
+    regGridSize       = 0.3;
 
     firstFrame = (n==1);
     if firstFrame
