@@ -18,9 +18,11 @@ classdef SLAMprocess
         optimizedPoses
         time_preprocess
         time_SLAM
+        results_time
 
         routeLengths
         distances
+        results_map
     end
 
     methods
@@ -56,13 +58,19 @@ classdef SLAMprocess
         function obj = runAll(obj)
             obj = preprocess(obj);
             obj = SLAM(obj);
-            obj = results(obj);
+            obj = calculateResults(obj);
         end
 
-        function obj = results(obj)
+        function obj = calculateResults(obj)
             [obj.routeLengths, obj.distances] = getResults(obj.optimizedPoses, obj.groundTruth, obj.eachFrame);
+
+            % keskiarvojen laskenta
             obj.routeLengths = [obj.routeLengths; mean(obj.routeLengths)];
             obj.distances = [obj.distances; mean(obj.distances)];
+
+            obj.results_map = [obj.distances obj.routeLengths];
+            obj.results_time = [obj.time_preprocess; obj.time_SLAM];
+            
         end
 
     end
