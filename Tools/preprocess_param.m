@@ -1,9 +1,12 @@
 function processed_pcSet = preprocess_param(pcSet, eachFrame, perform_den, downsamplemethod, downsampleValue, fovAngle)
 % Esikäsittely SLAM algoritmia varten
 
-processed_pcSet = {};
+processed_pcSet = cell(1, fix(size_of_psSet(pcSet)/eachFrame) );
+set_container = 1;
 
-for (n=1 : eachFrame : size_of_psSet(pcSet))
+
+for n=1 : eachFrame : size_of_psSet(pcSet)
+
     pc = pcSet{n};
 
     pc = pc_fov(pc, fovAngle, fovAngle);
@@ -26,7 +29,8 @@ for (n=1 : eachFrame : size_of_psSet(pcSet))
 
     end
 
-    processed_pcSet{end+1} = pc;
+    processed_pcSet{set_container} = pc;
+    set_container = set_container + 1;
 end
 
 end

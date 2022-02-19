@@ -46,7 +46,9 @@ classdef SLAMprocess
 
             obj.lidarSet = pc2laser(obj.pcSet_preprocessed, obj.zLimits(1), obj.zLimits(2));
 
-            obj.time_preprocess = toc;
+            temp = toc
+            obj.time_preprocess = temp;
+
         end
 
         function obj = SLAM(obj)

@@ -3,7 +3,8 @@ function lidarSet = pc2laser(pcSet, min, max)
 % min ja max määrittävät korkeuden, jonka välillä olevat pisteet
 % pistepilvessä otetaan mukaan
 
-lidarSet = {}; % 2D kuvien setti
+lidarSet = cell(1, size_of_psSet(pcSet)); % 2D kuvien setti
+set_container = 1;
 lidarScans = {}; % Apumuuttuja, johon tallennetaan pisteet
 
 for n=1 : size_of_psSet(pcSet) % Käydään jokainen pistepilvisetin yksilö
@@ -22,8 +23,9 @@ for n=1 : size_of_psSet(pcSet) % Käydään jokainen pistepilvisetin yksilö
     end
 
     % Muutetaan x- ja y- koordinaattivektori lidarscan-tietotyyppiin
-    lidarSet{end+1} = lidarScan(double(cell2mat(lidarScans)));
-    
+    lidarSet{set_container} = lidarScan(double(cell2mat(lidarScans)));
+
+    set_container = set_container + 1;
     lidarScans = {}; % Tyhjätään apumuuttuja seuraavaa kierrosta varten
 
 end
