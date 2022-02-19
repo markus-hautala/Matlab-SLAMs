@@ -1,6 +1,6 @@
 % Downloaded from
 % https://se.mathworks.com/help/vision/ug/build-a-map-from-lidar-data-using-slam.html
-% Edited for my needs
+% Edited for my needs  -  Markus Hautala
 
 %% Correct Drift Using Pose Graph Optimization
 % _Graph SLAM_ is a widely used technique for resolving the drift in
@@ -126,6 +126,7 @@ for n = 1 : skipFrames : numFrames
 
         % Process point cloud
         %ptCloudOld = helperProcessPointCloud_func(ptCloudOrig);
+        % esikäsittely on toteutettu aikaisemmin
         ptCloudOld = ptCloudOrig;
 
         % Downsample point cloud

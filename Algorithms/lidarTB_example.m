@@ -1,6 +1,6 @@
 % Downloaded from example
 % https://se.mathworks.com/help/lidar/ug/build-map-from-2d-lidar-scans-using-slam.html
-% Edited for my needs
+% Edited for my needs - Markus Hautala
 
 %% Build Map from 2-D Lidar Scans Using SLAM
 % This example shows you how to implement the simultaneous localization and
@@ -100,7 +100,7 @@ title(axMap,'Map of the Environment and Robot Trajectory')
 % though this increases computation time.
 
 loopClosureThreshold = 110;
-loopClosureSearchRadius = 1;
+loopClosureSearchRadius = 1; % arvo vaihdettu - Markus Hautala
 [loopClosureEdgeIds,loopClosurePoses] = helperDetectLoop(scans,pGraph, ...
     loopClosureSearchRadius,loopClosureThreshold);
 % Trajectory Optimization
