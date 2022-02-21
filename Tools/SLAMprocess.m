@@ -38,17 +38,15 @@ classdef SLAMprocess
         end
 
         function obj = preprocess(obj)
-            tic
-
-            obj.pcSet_preprocessed = preprocess_param(obj.pcSet, ...
+            [obj.pcSet_preprocessed, obj.time_preprocess] = preprocess_param(obj.pcSet, ...
                 obj.eachFrame, obj.performPcDenoise, obj.downsamplemethod, ...
                 obj.downsampleToPointAmount, obj.fov/2);
 
+            tic
             obj.lidarSet = pc2laser(obj.pcSet_preprocessed, obj.zLimits(1), obj.zLimits(2));
+            time_temp = toc;
 
-            temp = toc
-            obj.time_preprocess = temp;
-
+            obj.time_preprocess = [obj.time_preprocess; time_temp];
         end
 
         function obj = SLAM(obj)
@@ -72,7 +70,6 @@ classdef SLAMprocess
 
             obj.results_map = [obj.distances obj.routeLengths];
             obj.results_time = [obj.time_preprocess; obj.time_SLAM];
-            
         end
 
     end

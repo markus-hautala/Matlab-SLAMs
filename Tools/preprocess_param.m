@@ -1,5 +1,7 @@
-function processed_pcSet = preprocess_param(pcSet, eachFrame, perform_den, downsamplemethod, downsampleValue, fovAngle)
+function [processed_pcSet, time] = preprocess_param(pcSet, eachFrame, perform_den, downsamplemethod, downsampleValue, fovAngle)
 % Esikäsittely SLAM algoritmia varten
+
+tic
 
 processed_pcSet = cell(1, fix(size_of_psSet(pcSet)/eachFrame) );
 set_container = 1;
@@ -32,5 +34,7 @@ for n=1 : eachFrame : size_of_psSet(pcSet)
     processed_pcSet{set_container} = pc;
     set_container = set_container + 1;
 end
+
+time = toc;
 
 end
