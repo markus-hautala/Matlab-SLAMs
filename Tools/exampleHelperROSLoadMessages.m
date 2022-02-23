@@ -5,9 +5,10 @@
 %   See also ROSSpecializedMessagesExample.
 
 %   Copyright 2014-2015 The MathWorks, Inc.
+
 % Copied from example
 % https://se.mathworks.com/help/ros/ref/pointcloud2.html
-% 26.1.2022
+% 26.1.2022 - Markus Hautala
 
 % Load laser scan data
 scancell = load('scandata.mat');

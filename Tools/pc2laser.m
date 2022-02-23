@@ -1,7 +1,7 @@
 function lidarSet = pc2laser(pcSet, min, max)
-% Muunnetaan 3D pistepilvi 2D kuvaksi
+% Muunnetaan 3D-pistepilvi 2D-kuvaksi
 % min ja max määrittävät korkeuden, jonka välillä olevat pisteet
-% pistepilvessä otetaan mukaan
+% pistepilvessä z-akselin suhteen otetaan mukaan
 
 lidarSet = cell(1, size_of_psSet(pcSet)); % 2D kuvien setti
 set_container = 1;
