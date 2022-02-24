@@ -94,9 +94,8 @@ for n = 1 : skipFrames : numFrames
 
     % Compute rigid transformation that registers current point cloud with
     % previous point cloud
-    %relTform = pcregistericp(ptCloud, ptCloudPrev);
 
-    %relTform = pcregisterndt(ptCloud, ptCloudPrev, regGridSize);
+    % "zero"-initial transformation - Markus Hautala
 
     rot = [1 0 0;
         0 1 0;

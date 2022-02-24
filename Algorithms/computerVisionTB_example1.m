@@ -94,7 +94,6 @@ for n = 1 : skipFrames : numFrames
 
     % Compute rigid transformation that registers current point cloud with
     % previous point cloud
-    %relTform = pcregistericp(ptCloud, ptCloudPrev);
     relTform = pcregisterndt(ptCloud, ptCloudPrev, regGridSize);
 
     % Update absolute transformation to reference frame (first point cloud)
